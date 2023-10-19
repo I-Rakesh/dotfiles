@@ -1,0 +1,9 @@
+if [ "$PWD" = "$HOME" ]; then
+    file=$(find ~ -mindepth 1 -maxdepth 3 \( -path ~/Library -o -path ~/.Trash \) -prune -o -type f -print | fzf)
+else
+    file=$(find . -type f | fzf)
+fi
+
+if [ -n "$file" ]; then
+    nvim "$file"
+fi
