@@ -127,6 +127,7 @@ alias bare='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 
 bindkey -s ^f '~/.local/scripts/tmux-sessionizer\n'
+bindkey -s ^h 'tmux new -s Home\n'
 bindkey -s ^v '~/.local/scripts/open-file\n'
 KEYTIMEOUT=1
 
