@@ -6,4 +6,6 @@ fi
 
 if [ -n "$file" ]; then
     nvim "$file"
+else
+  echo "No file selected"
 fi
