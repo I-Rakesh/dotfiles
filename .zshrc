@@ -110,8 +110,8 @@ alias python='python3'
 alias vim='nvim'
 alias vi='nvim'
 alias lg='lazygit'
-alias ta='tmux a'
 alias bare='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias tx='tmux list-sessions | cut -d: -f1 | xargs -t -I {} tmux kill-session -t {}'
 
 
 bindkey -s ^k '~/.local/scripts/tmux-session-selector\n'
