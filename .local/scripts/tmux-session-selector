@@ -1,23 +1,21 @@
 #!/bin/bash
 
-# Check if tmux is running
-if ! tmux ls >/dev/null; then
-	echo "No active tmux sessions"
-	exit 0
-fi
+if tmux has-session 2>/dev/null; then
+	# Get a list of all active tmux sessions
+	sessions=$(tmux list-sessions -F '#{?session_attached,,#{session_name}}' |
+		sed '/^$/d' |
+		fzf --header jump-to-session --preview 'tmux capture-pane -pt {}')
 
-# Get a list of all active tmux sessions
-sessions=$(tmux list-sessions -F '#{?session_attached,,#{session_name}}' |
-	sed '/^$/d' |
-	fzf --header jump-to-session --preview 'tmux capture-pane -pt {}')
-
-# If the user selected a session, attach to it
-if [ -n "$sessions" ]; then
-	if [ -n "$TMUX" ]; then
-		tmux switch-client -t "$sessions"
+	# If the user selected a session, attach to it
+	if [ -n "$sessions" ]; then
+		if [ -n "$TMUX" ]; then
+			tmux switch-client -t "$sessions"
+		else
+			tmux attach -t "$sessions"
+		fi
 	else
-		tmux attach -t "$sessions"
+		echo "No session is selected"
 	fi
 else
-	echo "No session is selected"
+	echo "No active tmux sessions"
 fi
