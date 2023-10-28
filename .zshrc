@@ -111,6 +111,7 @@ alias vim='nvim'
 alias vi='nvim'
 alias lg='lazygit'
 alias bare='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias ta="tmux a"
 alias tx='tmux list-sessions | cut -d: -f1 | xargs -t -I {} tmux kill-session -t {}'
 
 
