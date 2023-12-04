@@ -119,8 +119,8 @@ alias tx='tmux list-sessions | cut -d: -f1 | xargs -t -I {} tmux kill-session -t
 
 bindkey -s ^k '~/.local/scripts/tmux-session-selector\n'
 bindkey -s ^f '~/.local/scripts/tmux-sessionizer\n'
-bindkey -s '^ ' '~/.local/scripts/tmux-sessionizer ~/ \n'
-bindkey -s ^v '~/.local/scripts/open-file\n'
+bindkey -s ^h '~/.local/scripts/tmux-sessionizer ~/ \n'
+bindkey -s ^o '~/.local/scripts/open-file\n'
 KEYTIMEOUT=1
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

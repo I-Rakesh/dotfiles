@@ -1,7 +1,7 @@
 if [ "$PWD" = "$HOME" ]; then
-    file=$(find ~ -mindepth 1 -maxdepth 3 \( -path ~/Library -o -path ~/.Trash \) -prune -o -type f -print | fzf)
+    file=$(find ~ -mindepth 1 -maxdepth 3 \( -path ~/Library -o -path ~/.Trash \) -prune -o -type f -print | fzf --preview 'bat --style=numbers --color=always {}')
 else
-    file=$(find . -type f | fzf)
+    file=$(find . -type f | fzf --preview 'bat --style=numbers --color=always {}')
 fi
 
 if [ -n "$file" ]; then
