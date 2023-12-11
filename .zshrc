@@ -121,6 +121,7 @@ bindkey -s ^k '~/.local/scripts/tmux-session-selector\n'
 bindkey -s ^f '~/.local/scripts/tmux-sessionizer\n'
 bindkey -s ^h '~/.local/scripts/tmux-sessionizer ~/ \n'
 bindkey -s ^o '~/.local/scripts/open-file\n'
+bindkey '^ ' autosuggest-accept
 KEYTIMEOUT=1
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
