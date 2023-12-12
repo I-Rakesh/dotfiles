@@ -125,7 +125,10 @@ bindkey '^ ' autosuggest-accept
 bindkey '^d' fzf-cd-widget
 KEYTIMEOUT=1
 set -o ignoreeof
-
+export FZF_ALT_C_OPTS="--height=80% --preview 'tree -C {}'"
+if [ "$PWD" = "$HOME" ]; then
+    export FZF_ALT_C_COMMAND='find ~/Documents/* ~/ -mindepth 1 -maxdepth 4 -type d ! -name "." ! -path "/.Trash/" ! -path "*/Library/*" ! -path "*/.cache/*" 2>/dev/null'
+fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
