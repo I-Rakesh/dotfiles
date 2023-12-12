@@ -126,9 +126,21 @@ bindkey '^d' fzf-cd-widget
 KEYTIMEOUT=1
 set -o ignoreeof
 export FZF_ALT_C_OPTS="--height=80% --preview 'tree -C {}'"
-if [ "$PWD" = "$HOME" ]; then
+
+# Best way to change directory automatically
+set_fzf_alt_c_command() {
+  if [ "$PWD" = "$HOME" ]; then
     export FZF_ALT_C_COMMAND='find ~/Documents/* ~/ -mindepth 1 -maxdepth 4 -type d ! -name "." ! -path "/.Trash/" ! -path "*/Library/*" ! -path "*/.cache/*" 2>/dev/null'
-fi
+  else
+    unset FZF_ALT_C_COMMAND
+  fi
+}
+# Set FZF_ALT_C_COMMAND when Zsh changes directories
+chpwd() {
+    set_fzf_alt_c_command
+}
+# Initial setup
+set_fzf_alt_c_command
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

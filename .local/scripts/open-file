@@ -1,9 +1,9 @@
 #!/bin/bash
 
 if [ "$PWD" = "$HOME" ]; then
-	file=$(find ~ -mindepth 1 -maxdepth 4 \( -path ~/Library -o -path ~/.Trash -o -path ~/.cache -o -path ~/dotfiles -o -name ".git" \) -prune -o -type f ! -name '*.DS_Store' -print | fzf --height=80% --reverse --preview 'bat {}')
+	file=$(find ~ -mindepth 1 -maxdepth 4 \( -path ~/Library -o -path ~/.Trash -o -path ~/.cache -o -path ~/dotfiles -o -name ".git" \) -prune -o -type f ! -name '*.DS_Store' -print | sed 's|^\./||' | fzf --height=80% --reverse --preview 'bat {}')
 else
-	file=$(find . -type f -not -path './.git/*' | fzf --height=80% --reverse --preview 'bat {}')
+	file=$(find . -type f -not -path './.git/*' | grep -v '\.DS_Store' | sed 's|^\./||' | fzf --height=80% --reverse --preview 'bat {}')
 fi
 
 if [ -n "$file" ]; then
