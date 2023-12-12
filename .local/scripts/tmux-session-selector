@@ -3,7 +3,7 @@
 if command -v tmux &>/dev/null; then
 	if tmux has-session 2>/dev/null; then
 		# Get a list of all active tmux sessions
-		sessions=$(tmux list-sessions -F '#{?session_attached,,#{session_name}}' | sed '/^$/d' | fzf --header ' Select-Session' --preview 'tmux capture-pane -eJ -t {} && tmux show-buffer')
+		sessions=$(tmux list-sessions -F '#{?session_attached,,#{session_name}}' | sed '/^$/d' | fzf --reverse --height=80% --header ' Select-Session' --preview 'tmux capture-pane -eJ -t {} && tmux show-buffer')
 
 		# If the user selected a session, attach to it
 		if [ -n "$sessions" ]; then
