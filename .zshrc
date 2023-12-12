@@ -122,7 +122,10 @@ bindkey -s ^f '~/.local/scripts/tmux-sessionizer\n'
 bindkey -s ^h '~/.local/scripts/tmux-sessionizer ~/ \n'
 bindkey -s ^o '~/.local/scripts/open-file\n'
 bindkey '^ ' autosuggest-accept
+bindkey '^d' fzf-cd-widget
 KEYTIMEOUT=1
+set -o ignoreeof
+
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
