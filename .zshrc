@@ -107,8 +107,6 @@ bindkey -v
 
 alias ls='colorls'
 alias python='python3'
-alias vim='nvim'
-alias vi='nvim'
 alias v='nvim .'
 alias c='clear'
 alias lg='lazygit'
