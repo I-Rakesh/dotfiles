@@ -108,6 +108,7 @@ bindkey -v
 alias ls='colorls'
 alias python='python3'
 alias v='nvim .'
+alias vi='nvim'
 alias c='clear'
 alias lg='lazygit'
 alias bare='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
