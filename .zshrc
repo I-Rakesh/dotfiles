@@ -124,7 +124,7 @@ bindkey '^ ' autosuggest-accept
 bindkey '^d' fzf-cd-widget
 KEYTIMEOUT=1
 set -o ignoreeof
-export FZF_ALT_C_OPTS="--height=80% --preview 'tree -C {}'"
+export FZF_ALT_C_OPTS=" --prompt '   ' --pointer "" --height=80% --preview 'tree -C {}'"
 
 # Best way to change directory automatically
 set_fzf_alt_c_command() {
