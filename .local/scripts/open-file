@@ -7,7 +7,13 @@ else
 fi
 
 if [ -n "$file" ]; then
-	nvim "$file"
+	extension="${file##*.}"
+
+	if [ "$extension" == "jpeg" ] || [ "$extension" == "jpg" ] || [ "$extension" == "png" ] || [ "$extension" == "pdf" ]; then
+		open "$file"
+	else
+		nvim "$file"
+	fi
 else
 	echo "No file selected"
 fi
