@@ -20,7 +20,7 @@ x = 4
 y = 0
 
 [colors.primary]
-background = "#232235"
+background = "#1E1E2E"
 
 [env]
-  TERM = "xterm-256color"
+TERM = "xterm-256color"
