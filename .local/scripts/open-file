@@ -9,7 +9,7 @@ fi
 if [ -n "$file" ]; then
 	extension="${file##*.}"
 
-	if [ "$extension" == "jpeg" ] || [ "$extension" == "jpg" ] || [ "$extension" == "png" ] || [ "$extension" == "pdf" ]; then
+	if [ "$extension" == "jpeg" ] || [ "$extension" == "jpg" ] || [ "$extension" == "png" ] || [ "$extension" == "pdf" ] || [ "$extension" == "pptx" ] || [ "$extension" == "ppt" ] || [ "$extension" == "doc" ]; then
 		open "$file"
 	else
 		nvim "$file"
