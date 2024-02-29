@@ -149,8 +149,8 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # function to change the cursor shape base on the mood
 function zle-keymap-select () {
     case $KEYMAP in
-        vicmd) echo -ne '\e[1 q';;      # block
-        viins|main) echo -ne '\e[5 q';; # beam 
+        vicmd) echo -ne '\e[1 q\e[?12l';;      # block
+        viins|main) echo -ne '\e[5 q\e[?12l';; # beam 
     esac
 }
 zle -N zle-keymap-select
@@ -161,5 +161,5 @@ zle-line-init() {
     echo -ne '\e[?12l\e[?25h'
 }
 zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam  shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+echo -ne '\e[5 q\e[?12l' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q\e[?12l' ;} # Use beam shape cursor for each new prompt.
