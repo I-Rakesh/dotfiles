@@ -150,7 +150,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 function zle-keymap-select () {
     case $KEYMAP in
         vicmd) echo -ne '\e[1 q\e[?12l';;      # block
-        viins|main) echo -ne '\e[5 q\e[?12l';; # beam 
+        viins|main) echo -ne '\e[5 q\e[?12l';; # beam
     esac
 }
 zle -N zle-keymap-select
