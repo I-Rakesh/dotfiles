@@ -47,7 +47,7 @@ symbol = " "
 symbol = " "
 
 [golang]
-symbol = " "
+symbol = " "
 
 [guix_shell]
 symbol = " "
@@ -136,7 +136,7 @@ symbol = "󰏗 "
 symbol = " "
 
 [python]
-symbol = " "
+symbol = " "
 
 [rlang]
 symbol = "󰟔 "
