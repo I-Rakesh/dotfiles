@@ -14,7 +14,7 @@ style = "Medium"
 [window]
 decorations = "buttonless"
 dynamic_padding = false
-opacity = 0.7
+# opacity = 0.7
 blur = true
 option_as_alt = "both"
 startup_mode = "Maximized"
@@ -22,7 +22,7 @@ decorations_theme_variant = "Dark"
 
 
 [window.padding]
-x = 4
+x = 3
 y = 0
 
 [env]
