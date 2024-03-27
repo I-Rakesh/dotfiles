@@ -142,8 +142,6 @@ chpwd() {
 # Initial setup
 set_fzf_alt_c_command
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # function to change the cursor shape base on the mood
