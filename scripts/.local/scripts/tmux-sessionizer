@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find ~/Documents/* ~/ -mindepth 1 -maxdepth 4 -type d ! -name "." ! -path "*/.Trash/*" ! -path "*/Library/*" ! -path "*/.cache/*" ! -path "*/.npm/*" ! -path "*/Pictures/*" ! -path "*/Movies/*" ! -path "*/Music/*" 2>/dev/null | fzf --reverse --prompt "   " --pointer "󰁕" --preview 'tree -C {}')
+	selected=$(find ~/Documents/* ~/ -mindepth 1 -maxdepth 4 -type d ! -name "." ! -path "*/.Trash/*" ! -path "*/.vscode/*" ! -path "*/.git/*" ! -path "*/Library/*" ! -path "*/.cache/*" ! -path "*/.npm/*" ! -path "*/Pictures/*" ! -path "*/Movies/*" ! -path "*/Music/*" 2>/dev/null | fzf --reverse --prompt "   " --pointer "󰁕" --preview 'tree -C {}')
 fi
 
 if [[ -z $selected ]]; then

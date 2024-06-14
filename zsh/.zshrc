@@ -60,7 +60,7 @@ export FZF_CTRL_T_OPTS=" --prompt '   ' --pointer "󰁕""
 # Best way to change directory automatically
 set_fzf_alt_c_command() {
   if [ "$PWD" = "$HOME" ]; then
-    export FZF_ALT_C_COMMAND='find ~/Documents/* ~/ -mindepth 1 -maxdepth 4 -type d ! -name "." ! -path "/.Trash/" ! -path "*/Library/*" ! -path "*/.cache/*" ! -path "*/.npm/*" ! -path "*/dotfiles/*" ! -path "*/Pictures/*" ! -path "*/Movies/*" ! -path "*/Music/*" 2>/dev/null'
+    export FZF_ALT_C_COMMAND='find ~/Documents/* ~/ -mindepth 1 -maxdepth 4 -type d ! -name "." ! -path "*/.Trash/*" ! -path "*/.git/*" ! -path "*/.vscode/*" ! -path "*/Library/*" ! -path "*/.cache/*" ! -path "*/.npm/*" ! -path "*/Pictures/*" ! -path "*/Movies/*" ! -path "*/Music/*" 2>/dev/null'
   else
     unset FZF_ALT_C_COMMAND
   fi
