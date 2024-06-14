@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ "$PWD" = "$HOME" ]; then
+	file=$(find ~ -mindepth 1 -maxdepth 4 \( -name "Photos Library.photoslibrary" -o -path ~/Library -o -path ~/.Trash -o -path ~/.cache -o -path ~/dotfiles -o -name ".git" \) -prune -o -type f ! -name '*.DS_Store' -print | sed 's|^\./||' | fzf --prompt "   " --pointer "󰁕" --height=80% --reverse --preview 'bat {}')
+else
+	file=$(find . -type f -not -path './.git/*' | grep -v '\.DS_Store' | sed 's|^\./||' | fzf --prompt "   " --pointer "󰁕" --height=80% --reverse --preview 'bat {}')
+fi
+
+if [ -n "$file" ]; then
+	extension="${file##*.}"
+
+	if [ "$extension" == "jpeg" ] || [ "$extension" == "jpg" ] || [ "$extension" == "png" ] || [ "$extension" == "pdf" ] || [ "$extension" == "pptx" ] || [ "$extension" == "ppt" ] || [ "$extension" == "doc" ]; then
+		open "$file"
+	else
+		nvim "$file"
+	fi
+else
+	echo "No file selected"
+fi

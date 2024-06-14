@@ -1,0 +1,52 @@
+{
+    "extensions.experimental.affinity": {
+      "asvetliakov.vscode-neovim": 1
+    },
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.lineNumbers": "relative",
+    "editor.minimap.enabled": false,
+    "editor.fontSize": 15,
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "workbench.activityBar.location": "bottom",
+    "workbench.editor.editorActionsLocation": "titleBar",
+    "workbench.editor.showTabs": "none",
+    "window.commandCenter": false,
+    "workbench.colorTheme": "Catppuccin Macchiato",
+    "editor.scrollbar.verticalScrollbarSize": 8,
+    "editor.smoothScrolling": true,
+    "editor.scrollbar.horizontalScrollbarSize": 8,
+    "code-runner.runInTerminal": true,
+    "catppuccin.italicKeywords": false,
+    "explorer.confirmDelete": false,
+    "terminal.integrated.fontSize": 15,
+    "chat.editor.fontSize": 15,
+    "scm.inputFontSize": 15,
+    "debug.console.fontSize": 15,
+    "vscode-neovim.compositeKeys": {},
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "block",
+    "editor.cursorSurroundingLines": 8,
+    "terminal.integrated.defaultLocation": "editor",
+    "terminal.integrated.focusAfterRun": "terminal",
+    "editor.stickyScroll.enabled": false,
+    "breadcrumbs.enabled": false,
+    "workbench.startupEditor": "none",
+    "workbench.sideBar.location": "right",
+
+    "apc.font.family": "JetBrainsMono Nerd Font",
+    "apc.activityBar": {
+      "size": 15,
+      "position": "bottom"
+
+    },
+    "apc.statusBar": {
+      "position": "editor-bottom"
+    },
+    "apc.listRow": {
+      "lists": [
+        "explorer-folders-view",
+      ],
+      "fontSize": 14
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+}

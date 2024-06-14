@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if command -v tmux &>/dev/null; then
+	if tmux has-session 2>/dev/null; then
+		# Get a list of all active tmux sessions
+		sessions=$(tmux list-sessions -F '#{?session_attached,,#{session_name}}' | sed '/^$/d' | fzf --prompt "   " --pointer "󰁕" --reverse --height=80% --header ' Active-Session' --preview 'tmux capture-pane -eJ -t {} && tmux show-buffer')
+
+		# If the user selected a session, attach to it
+		if [ -n "$sessions" ]; then
+			session_name=$(echo "$sessions" | awk '{print $1}')
+
+			if [ -n "$TMUX" ]; then
+				# Inside tmux, switch to the selected session
+				tmux switch-client -t "$session_name"
+			else
+				# Outside tmux, attach to the selected session
+				tmux attach -t "$session_name"
+			fi
+		else
+			echo "No session is selected"
+		fi
+	else
+		echo "No active tmux sessions"
+	fi
+else
+	echo "tmux is not installed"
+fi
