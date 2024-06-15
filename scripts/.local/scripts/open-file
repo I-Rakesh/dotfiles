@@ -2,11 +2,11 @@
 
 if [ "$PWD" = "$HOME" ]; then
 	file=$({
-		find ~ -mindepth 1 -maxdepth 4 \( -name "Photos Library.photoslibrary" -o -path ~/Library -o -path ~/Music -o -path ~/dotfiles -o -path ~/.mypy_cache -o -path ~/Pictures -o -path ~/Movies -o -path ~/.vim -o -path ~/.vscode -o -path ~/.Trash -o -path ~/.cache -o -name ".git" \) -prune -o -type f ! -name '*.DS_Store' -print
-		find ~/dotfiles -type f ! -name '*.DS_Store' ! -path "*/.git/*"
+		find -L ~ -mindepth 1 -maxdepth 4 \( -name "Photos Library.photoslibrary" -o -path ~/Library -o -path ~/Music -o -path ~/dotfiles -o -path ~/.mypy_cache -o -path ~/Pictures -o -path ~/Movies -o -path ~/.vim -o -path ~/.vscode -o -path ~/.Trash -o -path ~/.cache -o -name ".git" \) -prune -o -type f ! -name '*.DS_Store' -print
+		find -L ~/dotfiles -type f ! -name '*.DS_Store' ! -path "*/.git/*"
 	} | sed 's|^\./||' | fzf --prompt "   " --pointer "󰁕" --height=80% --reverse --preview 'bat {}')
 else
-	file=$(find . -type f -not -path './.git/*' | grep -v '\.DS_Store' | sed 's|^\./||' | fzf --prompt "   " --pointer "󰁕" --height=80% --reverse --preview 'bat {}')
+	file=$(find -L . -type f -not -path './.git/*' | grep -v '\.DS_Store' | sed 's|^\./||' | fzf --prompt "   " --pointer "󰁕" --height=80% --reverse --preview 'bat {}')
 fi
 
 if [ -n "$file" ]; then
