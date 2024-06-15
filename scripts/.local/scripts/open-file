@@ -2,7 +2,11 @@
 
 if [ "$PWD" = "$HOME" ]; then
 	file=$({
+<<<<<<< HEAD
 		find -L ~ -mindepth 1 -maxdepth 4 \( -name "Photos Library.photoslibrary" -o -path ~/Library -o -path ~/Music -o -path ~/dotfiles -o -path ~/.mypy_cache -o -path ~/Pictures -o -path ~/Movies -o -path ~/.vim -o -path ~/.vscode -o -path ~/.Trash -o -path ~/.cache -o -name ".git" \) -prune -o -type f ! -name '*.DS_Store' -print
+=======
+		find -L ~ -mindepth 1 -maxdepth 4 \( -name "Photos Library.photoslibrary" -o -path ~/Library -o -path ~/Music -o -path ~/dotfiles -o -path ~/.npm -o -path ~/.tmux -o -path ~/.mypy_cache -o -path ~/Pictures -o -path ~/Movies -o -path ~/.vim -o -path ~/.vscode -o -path ~/.Trash -o -path ~/.cache -o -name ".git" \) -prune -o -type f ! -name '*.DS_Store' -print
+>>>>>>> ad78a78 (Removed raycast settings from the repo)
 		find -L ~/dotfiles -type f ! -name '*.DS_Store' ! -path "*/.git/*"
 	} | sed 's|^\./||' | fzf --prompt "   " --pointer "󰁕" --height=80% --reverse --preview 'bat {}')
 else
