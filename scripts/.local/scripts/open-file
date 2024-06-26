@@ -2,7 +2,7 @@
 
 if [ "$PWD" = "$HOME" ]; then
 	file=$({
-		find -L ~ -mindepth 1 -maxdepth 4 -type f ! -name "." ! -name '*.DS_Store' ! -path "*/.Trash/*" ! -path "*/.vim/*" ! -path "*/.vscode/*" ! -path "*/.git/*" ! -path "*/.tmux/*" ! -path "*/Library/*" ! -path "*/.cache/*" ! -path "*/.npm/*" ! -path "*/Pictures/*" ! -path "*/Movies/*" ! -path "*/Music/*" ! -path "*/mypy_cache/*" -print
+		find -L ~ -mindepth 1 -maxdepth 4 -type f ! -name "." ! -name '*.DS_Store' ! -path "*/.Trash/*" ! -path "*/.terminfo/*" ! -path "*/.vim/*" ! -path "*/.vscode/*" ! -path "*/.git/*" ! -path "*/.tmux/*" ! -path "*/Library/*" ! -path "*/.cache/*" ! -path "*/.npm/*" ! -path "*/Pictures/*" ! -path "*/Movies/*" ! -path "*/Music/*" ! -path "*/mypy_cache/*" -print
 		find -L ~/dotfiles -type f ! -name '*.DS_Store' ! -path "*/.git/*"
 	} | sed 's|^\./||' | fzf --prompt "   " --pointer "󰁕" --height=80% --reverse --preview 'bat {}')
 else
