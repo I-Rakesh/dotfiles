@@ -7,9 +7,7 @@
     "editor.minimap.enabled": false,
     "editor.fontSize": 15,
     "editor.fontFamily": "JetBrainsMono Nerd Font",
-    "workbench.activityBar.location": "bottom",
-    "workbench.editor.editorActionsLocation": "titleBar",
-    "workbench.editor.showTabs": "none",
+    "workbench.editor.showTabs": "single",
     "window.commandCenter": false,
     "workbench.colorTheme": "Catppuccin Macchiato",
     "editor.scrollbar.verticalScrollbarSize": 8,
@@ -32,19 +30,26 @@
     "breadcrumbs.enabled": false,
     "workbench.startupEditor": "none",
     "workbench.sideBar.location": "right",
+    "workbench.layoutControl.enabled": false,
+    "window.titleBarStyle": "native",
+    "apc.electron": {
+        "titleBarStyle": "hiddenInset"
+      },
 
     "apc.font.family": "JetBrainsMono Nerd Font",
     "apc.activityBar": {
-      "size": 15,
+      "size": 30,
       "position": "bottom"
-
     },
     "apc.statusBar": {
       "position": "editor-bottom"
     },
+     "apc.stylesheet": {
+      ".monaco-editor .scroll-decoration": "display: none !important",
+    },
     "apc.listRow": {
       "lists": [
-        "explorer-folders-view",
+        "explorer-folders-view"
       ],
       "fontSize": 14
     },
