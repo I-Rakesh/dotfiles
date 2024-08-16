@@ -4,6 +4,9 @@ $lua\
 $nodejs\
 $golang\
 $haskell\
+$c\
+$python\
+$java\
 $rust\
 $ruby\
 $package\
