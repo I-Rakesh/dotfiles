@@ -72,3 +72,4 @@ chpwd() {
     # Initial setup
 set_fzf_alt_c_command
 
+export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
