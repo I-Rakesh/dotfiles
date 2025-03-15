@@ -29,29 +29,6 @@
     "editor.stickyScroll.enabled": false,
     "breadcrumbs.enabled": false,
     "workbench.startupEditor": "none",
-    "workbench.sideBar.location": "right",
     "workbench.layoutControl.enabled": false,
-    "window.titleBarStyle": "native",
-    "apc.electron": {
-        "titleBarStyle": "hiddenInset"
-      },
-
-    "apc.font.family": "JetBrainsMono Nerd Font",
-    "apc.activityBar": {
-      "size": 30,
-      "position": "bottom"
-    },
-    "apc.statusBar": {
-      "position": "editor-bottom"
-    },
-     "apc.stylesheet": {
-      ".monaco-editor .scroll-decoration": "display: none !important",
-    },
-    "apc.listRow": {
-      "lists": [
-        "explorer-folders-view"
-      ],
-      "fontSize": 14
-    },
     "diffEditor.ignoreTrimWhitespace": false,
 }
