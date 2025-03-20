@@ -11,10 +11,6 @@
         "when": "acceptSuggestionOnEnter && suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
     },
     {
-        "key": "shift+t",
-        "command": "openInIntegratedTerminal"
-    },
-    {
         "key": "shift+p",
         "command": "workbench.action.showAllEditors"
     },
