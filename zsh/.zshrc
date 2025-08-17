@@ -40,6 +40,7 @@ alias lg='lazygit'
 alias bare='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias ta="tmux a"
 alias tx='tmux list-sessions | cut -d: -f1 | xargs -t -I {} tmux kill-session -t {}'
+alias rm='trash -v >/dev/null 2>&1'
 
 # Keybinding
 bindkey -s ^k '~/.local/scripts/tmux-session-selector\n'
@@ -71,5 +72,3 @@ chpwd() {
 }
     # Initial setup
 set_fzf_alt_c_command
-
-export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"

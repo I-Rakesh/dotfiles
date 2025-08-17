@@ -1,15 +1,61 @@
 #!/bin/bash
 
+HISTFILE="$HOME/.tmux_dir_history"
+touch "$HISTFILE"
+
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find -L ~/ -mindepth 1 -maxdepth 4 -type d ! -name "." ! -path "*/.Trash/*" ! -path "*/.vscode/*" ! -path "*/.git/*" ! -path "*/.tmux/*" ! -path "*/Library/*" ! -path "*/.cache/*" ! -path "*/.npm/*" ! -path "*/Pictures/*" ! -path "*/Movies/*" ! -path "*/Music/*" ! -path "*/.mypy_cache/*" ! -name "*mypy_cache" 2>/dev/null | fzf --reverse --prompt "   " --pointer "󰁕" --preview 'tree -C {}')
+  # Find directories
+  all_dirs=$(fd --follow --hidden --no-ignore \
+    --type d \
+    --min-depth 1 \
+    --max-depth 4 \
+    --exclude .Trash \
+    --exclude .vscode \
+    --exclude .git \
+    --exclude .tmux \
+    --exclude Library \
+    --exclude .cache \
+    --exclude .npm \
+    --exclude Pictures \
+    --exclude Movies \
+    --exclude Music \
+    --exclude .mypy_cache \
+    --exclude .gem \
+    --exclude .aws \
+    --exclude '*mypy_cache' \
+    . ~/)
+
+  if [[ -s $HISTFILE ]]; then
+    # If history exists → sort by recent usage
+    sorted_dirs=$(echo "$all_dirs" | awk '
+      NR==FNR { seen[$0]=-(++rank); next }
+      {
+        if ($0 in seen) {
+          print seen[$0] "\t" $0
+        } else {
+          print NR+100000 "\t" $0
+        }
+      }
+    ' "$HISTFILE" - | sort -n | cut -f2-)
+  else
+    # First run → just use all dirs
+    sorted_dirs="$all_dirs"
+  fi
+
+  selected=$(echo "$sorted_dirs" | fzf --reverse --prompt "   " --pointer "󰁕" --preview 'tree -C {}')
 fi
 
 if [[ -z $selected ]]; then
   echo "No directory selected."
   exit 1
 fi
+
+# Update history
+grep -Fxv "$selected" "$HISTFILE" >"${HISTFILE}.tmp"
+echo "$selected" >>"${HISTFILE}.tmp"
+mv "${HISTFILE}.tmp" "$HISTFILE"
 
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
