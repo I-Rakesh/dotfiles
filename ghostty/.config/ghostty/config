@@ -19,3 +19,5 @@ shell-integration-features = no-cursor
 cursor-style-blink = false
 cursor-text = "#000000"
 cursor-color = "#B7BDF8"
+background-blur = true
+background-opacity = 0.975

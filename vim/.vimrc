@@ -29,3 +29,13 @@ nnoremap <leader>Y "+Y
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 nnoremap <leader>f mzgg=G`z
+
+
+" Move windows with <leader>H/J/K/L
+nnoremap <c-h> <C-w>h
+nnoremap <c-j> <C-w>j
+nnoremap <c-k> <C-w>k
+nnoremap <c-l> <C-w>l
+
+" Swap window positions with <leader>'
+nnoremap <leader>' <C-w><C-r>
